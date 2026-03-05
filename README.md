@@ -19,7 +19,7 @@ Use this template to test the CDN configuration of your tracking domain—the me
 ## How do I use the template
 1. **Get the Code:** Click this [link](https://raw.githubusercontent.com/robertalberto/ssl_clicktracking_template/refs/heads/main/template.html) to open the raw HTML from the template.html file.
 2. **Import to Braze:** Copy the HTML and paste it into a Braze HTML Email campaign.
-3. **Configure your URL*:** This template uses example.com as the default destination. To test your own links and tracking domain, simply replace the URL in the capture tag located on line 117.
+3. **Configure your URL:** This template uses example.com as the default destination. To test your own links and tracking domain, simply replace the URL in the capture tag located on line 117.
    1. For instance: replace "https://example.com" with "https://braze.com/blog".
 4. **Test:** Use the Preview & Test function to send a test email to yourself and click both buttons.
 5. **Verify:** The expected behavior and success criteria are described within the template itself.
