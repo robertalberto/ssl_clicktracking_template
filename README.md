@@ -35,7 +35,7 @@ Use this template to test the CDN configuration of your tracking domain—the me
 
 | Browser error/status code                                            | Likely cause                 | General Recommendation                                                                                                    |
 | -------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| "Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID) | SSL Certificate Mismatch     | Verify that your SSL certificate                                                                                          |
+| "Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID) | SSL Certificate Mismatch     | Verify that your tracking domain has a valid SSL certificate   |
 | "This site can’t be reached" (DNS_PROBE_FINISHED_NXDOMAIN)           | CNAME Misconfiguration       | Check your DNS settings. Ensure your tracking sub-domain is configured per your CDN and ESP recommended configuration     |
 | 525 / 526 SSL Error (Cloudflare)                                     | Origin SSL Handshake Failure | Ensure the SSL setting in your CDN (like Cloudflare) matches your Origin's capability                                     |
 | 404 Not Found                                                        | Path Masking / Routing Issue | Ensure your CDN is configured to forward the entire URL path to the ESP, rather than just hitting a blank root directory. |
