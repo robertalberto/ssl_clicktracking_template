@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Tracking Test</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #2b0562; 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            color: #ffd1e9; 
+        }
+        
+        .email-container { 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 40px auto; 
+            background-color: rgba(255, 255, 255, 0.05); 
+            border: 1px solid #F3697F; 
+            border-radius: 16px; 
+            overflow: hidden; 
+        }
+        
+        .header { 
+            background: linear-gradient(135deg, #E83F21 0%, #F3697F 100%); 
+            padding: 40px 20px 50px 20px; 
+            text-align: center; 
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 25px auto;
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+        
+        .header h1 { 
+            color: #ffffff; 
+            margin: 0; 
+            font-size: 26px; 
+            font-weight: 800; 
+            letter-spacing: -0.5px; 
+        }
+        
+        .content { 
+            padding: 40px 40px 20px 40px; 
+            line-height: 1.8; 
+            font-size: 15px; 
+        }
+
+        .troubleshoot {
+            margin: 0 40px 40px 40px;
+            padding: 25px;
+            background-color: rgba(253, 167, 216, 0.1);
+            border-radius: 12px;
+            font-size: 14px;
+            border: 1px dashed #F3697F;
+        }
+        
+        .troubleshoot h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .troubleshoot ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .troubleshoot li {
+            margin-bottom: 10px;
+        }
+        
+        .btn-section { 
+            padding: 0 40px 40px 40px; 
+            text-align: center; 
+        }
+        
+        .btn { 
+            display: inline-block; 
+            padding: 16px 32px; 
+            border-radius: 12px; 
+            font-weight: 700; 
+            text-decoration: none; 
+            margin: 10px;
+            font-size: 14px;
+        }
+        
+        .btn-tracked { 
+            background-color: #F3697F; 
+            color: #ffffff; 
+            box-shadow: 0 4px 15px rgba(243, 105, 127, 0.3);
+        }
+        
+        .btn-untracked { 
+            border: 2px solid #FDA7D8; 
+            color: #FDA7D8; 
+            background-color: transparent;
+        }
+
+        .footer { 
+            text-align: center; 
+            font-size: 12px; 
+            color: #FDA7D8; 
+            padding-bottom: 40px; 
+            opacity: 0.6; 
+        }
+        
+        strong { color: #ffffff; }
+        a { color: #FDA7D8; }
+    </style>
+</head>
+{%- capture url -%}https://example.com{%- endcapture -%}
+<body>
+    <center>
+        <table class="email-container" role="presentation" width="600" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="header">
+                    <img src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/69a9b6976aaa9200763ab224/original.png?1772730007" 
+                         width="150" 
+                         alt="Logo" 
+                         class="logo">
+                    <h1>Testing Click Tracking Functionality</h1>
+                </td>
+            </tr>
+            <tr>
+                <td class="content">
+                    <p>
+                        Use this template to test the <strong>CDN configuration</strong> of your tracking domain—the mechanism supporting analytics for links within your emails.
+                    </p>
+                    <p>
+                        A <strong>Tracked URL</strong> wraps the original HTTPS link in your tracking domain. When a user clicks it, the tracking domain resolves the request and redirects to the final destination. A CDN allows you to track secure (HTTPS) URLs; without it, users may encounter a "connection is not secure" privacy error. An <strong>Untracked URL</strong> maintains the original URL intact, bypassing the CDN to serve as a control environment.
+                    </p>
+                    <p>
+                        Common redirection issues typically result from an improper configuration between the CDN hosting the tracking domain and the <strong>associated SSL certificate or DNS CNAME records.</strong>
+                    </p>
+                    <p>
+                        <i>This template uses "example.com" as the destination URL. To test your own domain, simply replace the URL in the <strong>capture</strong> tag located on line 117 (e.g., change "https://example.com" to "https://braze.com/blog").</i>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="btn-section">
+                    <a href="{{url}}" class="btn btn-tracked">Tracked URL</a>
+                    
+                    <a href="{{url}}" 
+                       class="btn btn-untracked"
+                       clicktracking="off" 
+                       data-msys-clicktrack="0" 
+                       ses:no-track="true">
+                       Untracked URL
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="troubleshoot">
+                        <h2>Troubleshooting the Test</h2>
+                        <ul>
+                            <li><strong>Tracked URL Fails / Untracked Works:</strong> This indicates a CDN or SSL certificate issue. Verify that your SSL certificate is valid and correctly bound to your tracking domain.</li>
+                            <li><strong>Privacy Error (HTTPS):</strong> Ensure your CDN is configured to handle port 443 traffic and that the certificate matches your tracking CNAME.</li>
+                            <li><strong>Both URLs Fail:</strong> Check the destination URL or your internal network firewall settings.</li>
+                            <li>For more information, visit: <a href="https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#ssl-at-braze">SSL at Braze</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="footer">
+            Braze :: 63 Madison Avenue, 13th Floor :: New York, NY 10016
+        </div>
+    </center>
+</body>
+</html>
