@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
     <title>Click Tracking Test</title>
     <style>
+        /* Base Dark Mode (Default) */
         body { 
             margin: 0; 
             padding: 0; 
@@ -66,15 +69,6 @@
             color: #ffffff;
         }
 
-        .troubleshoot ul {
-            padding-left: 20px;
-            margin-bottom: 0;
-        }
-
-        .troubleshoot li {
-            margin-bottom: 10px;
-        }
-        
         .btn-section { 
             padding: 0 40px 40px 40px; 
             text-align: center; 
@@ -93,7 +87,6 @@
         .btn-tracked { 
             background-color: #F3697F; 
             color: #ffffff; 
-            box-shadow: 0 4px 15px rgba(243, 105, 127, 0.3);
         }
         
         .btn-untracked { 
@@ -109,9 +102,24 @@
             padding-bottom: 40px; 
             opacity: 0.6; 
         }
-        
-        strong { color: #ffffff; }
-        a { color: #FDA7D8; }
+
+        /* Light Mode Overrides */
+        @media (prefers-color-scheme: light) {
+            body { background-color: #F7FCFF !important; color: #2b0562 !important; }
+            .email-container { background-color: #ffffff !important; border: 1px solid #FDA7D8 !important; box-shadow: 0 4px 20px rgba(43, 5, 98, 0.1); }
+            .content { color: #2b0562 !important; }
+            .troubleshoot { background-color: #F7FCFF !important; border-color: #F3697F !important; color: #2b0562 !important; }
+            .troubleshoot h2 { color: #E83F21 !important; }
+            .btn-untracked { color: #F3697F !important; border-color: #F3697F !important; }
+            .footer { color: #2b0562 !important; }
+            strong { color: #E83F21 !important; }
+        }
+
+        /* Mobile Optimization */
+        @media only screen and (max-width: 480px) {
+            .btn { display: block !important; margin: 10px 0 !important; width: auto !important; }
+            .content, .troubleshoot { padding: 25px !important; }
+        }
     </style>
 </head>
 {%- capture url -%}https://example.com{%- endcapture -%}
@@ -139,7 +147,7 @@
                         Common redirection issues typically result from an improper configuration between the CDN hosting the tracking domain and the <strong>associated SSL certificate or DNS CNAME records.</strong>
                     </p>
                     <p>
-                        <i>This template uses "example.com" as the destination URL. To test your own domain, simply replace the URL in the <strong>capture</strong> tag located on line 117 (e.g., change "https://example.com" to "https://braze.com/blog").</i>
+                        <i style="font-size: 13px;">This template uses "example.com" as the destination URL. To test your own domain, simply replace the URL in the <strong>capture</strong> tag located on line 117.</i>
                     </p>
                 </td>
             </tr>
