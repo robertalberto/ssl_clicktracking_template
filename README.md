@@ -29,7 +29,7 @@ Use this template to test the CDN configuration of your tracking domain—the me
 * If your Untracked URL works but your Tracked URL fails, you likely have a configuration gap. To troubleshoot, refer to the documentation for your specific ESP and CDN provider:
   * ESP Documentation: SparkPost, SendGrid, or Amazon SES.
   * CDN Documentation: Cloudflare, AWS CloudFront, Akamai, etc.
-  * Braze Resources: Review the SSL at Braze Guide for detailed requirements on certificate provisioning.
+  * Braze Resources: Review the [SSL at Braze Guide](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl) for detailed requirements on certificate provisioning.
 
 ### Common errors
 
