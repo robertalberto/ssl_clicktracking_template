@@ -1,4 +1,4 @@
-## what is the template for?
+## What is the template for?
 Use this template to test the CDN configuration of your tracking domain—the mechanism supporting analytics for links within your emails. Common redirection issues typically result from an improper configuration between the CDN hosting the tracking domain and its associated SSL certificates or DNS CNAME records. These misconfigurations often cause users to receive a "connection is not secure" privacy error or a 404 failure after clicking a tracked email link.
 
 ### Key concepts
