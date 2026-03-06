@@ -6,7 +6,7 @@ Use this template to test the CDN configuration of your tracking domain—the me
 * A **Tracked URL** wraps the original HTTPS link in your tracking domain. When a user clicks it, the tracking domain resolves the request and redirects to the final destination. A CDN allows you to track secure (HTTPS) URLs; without it, users may encounter a "connection is not secure" privacy error.
 * An **Untracked URL** maintains the original URL intact, bypassing the CDN to serve as a control environment.
 
-> Note: This template uses "example.com" as the destination URL. To test your own links and tracking domain, simply replace the URL in the capture tag located on line 117. For instance, "https://example.com" becomes "https://braze.com/blog". After replacing your link, use the Preview & Test function to send an email to yourself. Click each button below to observe the link redirect behavior.
+> Note: This template uses "example.com" as the destination URL. To test your own links and tracking domain, simply replace the URL in the capture tag located on line 125. For instance, "https://example.com" becomes "https://braze.com/blog". After replacing your link, use the Preview & Test function to send an email to yourself. Click each button below to observe the link redirect behavior.
 
 
 ## Example of a Broken CDN configuration
